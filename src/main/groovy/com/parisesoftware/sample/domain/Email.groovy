@@ -19,7 +19,6 @@ class Email {
 
     /**
      * Factory Method to handle Construction of `Email` Immutable Objects
-     * <b>Note:</b> This does not handle verifying if the Email is already in use
      *
      * @param value the Value to be encapsulated
      * @return an Immutable Email

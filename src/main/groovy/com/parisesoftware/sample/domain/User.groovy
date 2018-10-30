@@ -14,8 +14,9 @@ class User {
     /**
      * Factory Method to Handle Creation of new `User` Immutable objects
      *
-     * @param userId
-     * @param name
+     * @param userId the Unique Identifier Value Object to be associated with this User
+     * @param name the Name Value Object to be associated with this User
+     *
      * @return an Immutable User object
      */
     static User of(final UserId userId, final Name name) {

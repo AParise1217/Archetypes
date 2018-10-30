@@ -22,10 +22,9 @@ class Password {
 
     /**
      * Factory Method to handle Construction of `Password` Immutable Objects
-     * <b>Note:</b> This does not handle verifying if the Password has already been used,
-     *              or if it contains a Special Character
      *
      * @param value the Value to be encapsulated
+     *
      * @return an Immutable Password
      */
     static Password of(String value) {
