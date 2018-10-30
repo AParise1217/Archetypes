@@ -7,9 +7,9 @@ import static org.apache.commons.lang3.Validate.notNull
 @Immutable
 class User {
 
-    private UserId userId
+    UserId userId
 
-    private Name name
+    Name name
 
     /**
      * Factory Method to Handle Creation of new `User` Immutable objects
@@ -28,6 +28,5 @@ class User {
 
         return new User(userId: userId, name: name)
     }
-
 
 }

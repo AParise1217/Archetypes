@@ -7,9 +7,9 @@ import static org.apache.commons.lang3.Validate.notNull
 @Immutable
 class Name {
 
-    private FirstName firstName
+    FirstName firstName
 
-    private LastName lastName
+    LastName lastName
 
     /**
      * Factory Method to Handle Creation of new `Name` Immutable objects
