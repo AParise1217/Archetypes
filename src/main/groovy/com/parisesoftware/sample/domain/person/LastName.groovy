@@ -1,4 +1,4 @@
-package com.parisesoftware.sample.domain
+package com.parisesoftware.sample.domain.person
 
 import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
@@ -17,7 +17,7 @@ class LastName {
      * Factory Method to handle Construction of `LastName` Immutable Objects
      *
      * @param value the Value to be
-     * @return an Immutable Last Name
+     * @return an Immutable Last PersonName
      */
     static LastName of(String value) {
 

@@ -63,7 +63,6 @@
         </plugins>
     </build>
 
-
     <properties>
         <junit.version>4.11</junit.version>
         <apache.commons-lang3.version>3.7</apache.commons-lang3.version>
@@ -72,7 +71,6 @@
     </properties>
 
     <dependencies>
-
 
         <dependency>
             <groupId>org.apache.commons</groupId>

@@ -1,4 +1,4 @@
-package com.parisesoftware.sample.domain
+package com.parisesoftware.sample.domain.person
 
 import spock.lang.Specification
 
@@ -12,7 +12,7 @@ class FirstNameTest extends Specification {
             def expectedValue = 'Andrew'
             def testUntrimmedValue = "      $expectedValue           "
 
-        when: "the First Name Factory Method is Invoked"
+        when: "the First PersonName Factory Method is Invoked"
             final firstName = FirstName.of(testUntrimmedValue)
 
         then: "the value is trimmed"
@@ -23,7 +23,7 @@ class FirstNameTest extends Specification {
         given: "a Value exceeding the Max Value"
             def bigTestValue = repeat('a', FirstName.MAX_LENGTH - 1)
 
-        when: "the First Name Factory Method is Invoked"
+        when: "the First PersonName Factory Method is Invoked"
             FirstName.of(bigTestValue)
 
         then: "no Exceptions are thrown"
@@ -34,7 +34,7 @@ class FirstNameTest extends Specification {
         given: "a Value exceeding the Max Value"
             def bigTestValue = repeat('a', FirstName.MAX_LENGTH + 1)
 
-        when: "the First Name Factory Method is Invoked"
+        when: "the First PersonName Factory Method is Invoked"
             FirstName.of(bigTestValue)
 
         then: "an IllegalArgumentException is thrown"
@@ -45,7 +45,7 @@ class FirstNameTest extends Specification {
         given: "a Value that is blank"
             def blankTestValue = ''
 
-        when: "the First Name Factory Method is Invoked"
+        when: "the First PersonName Factory Method is Invoked"
             FirstName.of(blankTestValue)
 
         then: "an IllegalArgumentException is thrown"
@@ -56,7 +56,7 @@ class FirstNameTest extends Specification {
         given: "a Value that is a bunch of spaces"
             def blankTestValue = '    '
 
-        when: "the First Name Factory Method is Invoked"
+        when: "the First PersonName Factory Method is Invoked"
             FirstName.of(blankTestValue)
 
         then: "an IllegalArgumentException is thrown"
