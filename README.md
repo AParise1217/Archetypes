@@ -1,2 +1,2 @@
-# Groovy-Immutables
-Sample Repository to test out Groovy's Implementation of Immutables
+# Domain Models
+Sample Domain Models implementated in Groovy.
