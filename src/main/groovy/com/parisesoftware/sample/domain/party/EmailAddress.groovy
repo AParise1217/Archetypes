@@ -1,4 +1,4 @@
-package com.parisesoftware.sample.domain
+package com.parisesoftware.sample.domain.party
 
 import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
@@ -8,24 +8,22 @@ import static org.apache.commons.lang3.StringUtils.trim
 import static org.apache.commons.lang3.Validate.notBlank
 
 @Immutable
-class UserId {
+class EmailAddress extends Address {
 
-    private static final String REGEX_INVALID_STARTING_CHARACTER = '^[a-zA-Z].*'
-    private static final String REGEX_CONTAINS_INVALID_CHARACTER = '^[a-zA-Z0-9._-]+$'
+    private static final String REGEX_MALFORMED_EMAIL = '^[a-zA-Z0-9_!#$%&\'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+[.][a-zA-Z0-9.-]+$'
 
-    protected static final int MIN_LENGTH = 3
-    protected static final int MAX_LENGTH = 36
+    protected static final int MIN_LENGTH = 5
+    protected static final int MAX_LENGTH = 256
 
     String value
 
     /**
-     * Factory Method to handle Construction of `UserId` Immutable Objects
-     * <b>Note:</b> This does not handle verifying if the UserId is already in use
+     * Factory Method to handle Construction of `EmailAddress` Immutable Objects
      *
      * @param value the Value to be encapsulated
-     * @return an Immutable User Id
+     * @return an Immutable EmailAddress
      */
-    static UserId of(final String value) {
+    static EmailAddress of(String value) {
 
         // Check for a Blank Value
         notBlank(value)
@@ -38,11 +36,8 @@ class UserId {
         // Check Max Length
         throwExceptionIfOverMaxLength(trimmed)
 
-        // Check For Invalid Starting Character
-        throwExceptionIfInvalidStartingCharacter(trimmed)
-
-        // Check For Invalid Characters
-        throwExceptionIfContainsInvalidCharacter(trimmed)
+        // Check For a Malformed EmailAddress Address
+        throwExceptionIfEmailIsMalformed(trimmed)
 
         // if the Value was Trimmed, and within the bounds,
         // then invoked again to be sure all validation rules were hit
@@ -50,7 +45,7 @@ class UserId {
             return of(trimmed)
         }
 
-        return new UserId(value)
+        return new EmailAddress(value)
     }
 
     private static void throwExceptionIfOverMaxLength(String value) {
@@ -65,15 +60,9 @@ class UserId {
         }
     }
 
-    private static void throwExceptionIfInvalidStartingCharacter(String value) {
-        if(!"$value".matches(REGEX_INVALID_STARTING_CHARACTER)) {
-            throw new IllegalArgumentException("Param Value's Starting Character was invalid.")
-        }
-    }
-
-    private static void throwExceptionIfContainsInvalidCharacter(String value) {
-        if (!"$value".matches(REGEX_CONTAINS_INVALID_CHARACTER)) {
-            throw new IllegalArgumentException("Param Value Contained an invalid Character.")
+    private static void throwExceptionIfEmailIsMalformed(String value) {
+        if(!"$value".matches(REGEX_MALFORMED_EMAIL)) {
+            throw new IllegalArgumentException("Param Value was Malformed.")
         }
     }
 

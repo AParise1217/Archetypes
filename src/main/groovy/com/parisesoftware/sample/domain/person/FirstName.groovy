@@ -19,15 +19,14 @@ class FirstName {
      * @param value the Value to be
      * @return an Immutable First PersonName
      */
-    static FirstName of(String value) {
+    static FirstName of(final String value) {
 
         // Check for a Blank Value
         notBlank(value)
 
         final String trimmed = trim(value)
-        if(!isTrue(trimmed.length() <= MAX_LENGTH)) {
-            throw new IllegalArgumentException("Param Value Exceeded the Maximum length of ${MAX_LENGTH}.")
-        }
+
+        throwExceptionIfOverMaximumLength(trimmed)
 
         if (!StringUtils.equals(value, trimmed)) {
             return of(trimmed)
@@ -36,5 +35,10 @@ class FirstName {
         return new FirstName(value)
     }
 
+    private static void throwExceptionIfOverMaximumLength(String value) {
+        if(!isTrue(value.length() <= MAX_LENGTH)) {
+            throw new IllegalArgumentException("Param Value Exceeded the Maximum length of ${MAX_LENGTH}.")
+        }
+    }
 
 }
