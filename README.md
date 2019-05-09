@@ -1,2 +1,3 @@
-# Domain Models
-Sample Domain Models implementated in Groovy.
+# Archetypes
+Various Domain Archetype Patterns implemented in Groovy.
+
