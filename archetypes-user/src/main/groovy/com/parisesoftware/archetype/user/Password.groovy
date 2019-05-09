@@ -1,13 +1,11 @@
 package com.parisesoftware.archetype.user
 
-import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.BooleanUtils.isTrue
 import static org.apache.commons.lang3.StringUtils.trim
 import static org.apache.commons.lang3.Validate.notBlank
 
-@Immutable
 class Password {
 
     private static final String REGEX_CONTAINS_LOWERCASE_CHARACTER = '.*[a-z].*'
@@ -18,7 +16,11 @@ class Password {
     protected static final int MIN_LENGTH = 8
     protected static final int MAX_LENGTH = 255
 
-    String value
+    final String value
+
+    protected Password(final String value) {
+        this.value = value
+    }
 
     /**
      * Factory Method to handle Construction of `Password` Immutable Objects

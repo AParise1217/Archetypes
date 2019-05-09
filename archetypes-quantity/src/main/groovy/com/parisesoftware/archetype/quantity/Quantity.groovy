@@ -1,26 +1,18 @@
 package com.parisesoftware.archetype.quantity
 
 import com.parisesoftware.archetype.quantity.exception.MetricTypeMismatchException
-import groovy.transform.Immutable
 
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class Quantity {
 
-    double amount
+    final double amount
 
-    Metric metric
+    final Metric metric
 
-    static Quantity of(final double amount, final Metric metric) {
-
-        // verify the amount was a real number
-        assert((amount * amount) >= 0)
-
-        // verify the metric was not null
-        notNull(metric)
-
-        return new Quantity(amount: amount, metric: metric)
+    protected Quantity(final double amount, final Metric metric) {
+        this.amount = amount
+        this.metric = metric
     }
 
     Quantity add(Quantity quantity) {
@@ -41,6 +33,17 @@ class Quantity {
 
     private void throwExceptionIfMetricMismatch(Quantity quantity) {
         if(this.metric != quantity.metric) throw new MetricTypeMismatchException()
+    }
+
+    static Quantity of(final double amount, final Metric metric) {
+
+        // verify the amount was a real number
+        assert((amount * amount) >= 0)
+
+        // verify the metric was not null
+        notNull(metric)
+
+        return new Quantity(amount, metric)
     }
 
 }

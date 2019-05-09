@@ -1,20 +1,25 @@
 package com.parisesoftware.archetype.core
 
-import groovy.transform.Immutable
-
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class Name {
 
-    String value
+    protected final String value
+
+    protected Name(final String value) {
+        this.value = value
+    }
+
+    String getValue() {
+        return this.value
+    }
 
     static Name of(final String value) {
 
         // verify the value was not null
         notNull(value)
 
-        return new Name(value: value)
+        return new Name(value)
     }
 
 }

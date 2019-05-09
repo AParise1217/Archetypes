@@ -5,10 +5,16 @@ import groovy.transform.Immutable
 
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
+/**
+ * a System Generated Unique Identifier
+ */
 class PartyIdentifier {
 
-    UniqueIdentifier uniqueIdentifier
+    final UniqueIdentifier uniqueIdentifier
+
+    protected PartyIdentifier(final UniqueIdentifier uniqueIdentifier) {
+        this.uniqueIdentifier = uniqueIdentifier
+    }
 
     static PartyIdentifier of(final UniqueIdentifier uniqueIdentifier) {
 

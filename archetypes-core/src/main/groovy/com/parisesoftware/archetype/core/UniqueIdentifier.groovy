@@ -1,20 +1,21 @@
 package com.parisesoftware.archetype.core
 
-import groovy.transform.Immutable
-
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class UniqueIdentifier {
 
-    String identifier
+    final String identifier
+
+    protected UniqueIdentifier(final String identifier) {
+        this.identifier = identifier
+    }
 
     static UniqueIdentifier of(final String identifier) {
 
         // verify the identifier was not null
         notNull(identifier)
 
-        return new UniqueIdentifier(identifier: identifier)
+        return new UniqueIdentifier(identifier)
     }
 
 }

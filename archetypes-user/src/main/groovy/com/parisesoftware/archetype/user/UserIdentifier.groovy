@@ -1,15 +1,13 @@
 package com.parisesoftware.archetype.user
 
 import com.parisesoftware.archetype.core.UniqueIdentifier
-import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.BooleanUtils.isTrue
 import static org.apache.commons.lang3.StringUtils.trim
 import static org.apache.commons.lang3.Validate.notBlank
 
-@Immutable
-class UserIdentifier {
+class UserIdentifier extends UniqueIdentifier {
 
     private static final String REGEX_INVALID_STARTING_CHARACTER = '^[a-zA-Z].*'
     private static final String REGEX_CONTAINS_INVALID_CHARACTER = '^[a-zA-Z0-9._-]+$'
@@ -17,7 +15,9 @@ class UserIdentifier {
     protected static final int MIN_LENGTH = 3
     protected static final int MAX_LENGTH = 36
 
-    UniqueIdentifier uniqueIdentifier
+    protected UserIdentifier(String identifier) {
+        super(identifier)
+    }
 
     /**
      * Factory Method to handle Construction of `UserIdentifier` Immutable Objects
@@ -26,9 +26,7 @@ class UserIdentifier {
      * @param value the Value to be encapsulated
      * @return an Immutable User Id
      */
-    static UserIdentifier of(final UniqueIdentifier uniqueIdentifier) {
-
-        String value = uniqueIdentifier.identifier
+    static UserIdentifier of(final String value) {
 
         // Check for a Blank Value
         notBlank(value)
