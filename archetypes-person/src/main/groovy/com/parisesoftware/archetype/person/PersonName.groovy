@@ -1,15 +1,17 @@
 package com.parisesoftware.archetype.person
 
-import groovy.transform.Immutable
-
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class PersonName {
 
-    FirstName firstName
+    final FirstName firstName
 
-    LastName lastName
+    final LastName lastName
+
+    protected PersonName(final FirstName firstName, final LastName lastName) {
+        this.firstName = firstName
+        this.lastName = lastName
+    }
 
     /**
      * Factory Method to Handle Creation of new `PersonName` Immutable objects
@@ -27,7 +29,7 @@ class PersonName {
         // verify the LastName was not null
         notNull(lastName)
 
-        return new PersonName(firstName: firstName, lastName: lastName)
+        return new PersonName(firstName, lastName)
     }
 
     String getName() {

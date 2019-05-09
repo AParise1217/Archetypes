@@ -1,22 +1,25 @@
 package com.parisesoftware.archetype.user
 
 import com.parisesoftware.archetype.person.Person
-import groovy.transform.Immutable
 
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class User {
 
-    UserIdentifier userId
+    final UserIdentifier userId
 
-    Person person
+    final Person person
+
+    protected User(final UserIdentifier userId, final Person person) {
+        this.userId = userId
+        this.person = person
+    }
 
     /**
      * Factory Method to Handle Creation of new `User` Immutable objects
      *
      * @param userId the Unique Identifier Value Object to be associated with this User
-     * @param name the PersonName Value Object to be associated with this User
+     * @param person the person Value Object to be associated with this User
      *
      * @return an Immutable User object
      */
@@ -28,7 +31,7 @@ class User {
         // verify the Person was not null
         notNull(person)
 
-        return new User(userId: userId, person: person)
+        return new User(userId, person)
     }
 
 }

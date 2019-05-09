@@ -1,13 +1,11 @@
 package com.parisesoftware.archetype.party.address
 
-import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.BooleanUtils.isTrue
 import static org.apache.commons.lang3.StringUtils.trim
 import static org.apache.commons.lang3.Validate.notBlank
 
-@Immutable
 class EmailAddress extends Address {
 
     private static final String REGEX_MALFORMED_EMAIL = '^[a-zA-Z0-9_!#$%&\'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+[.][a-zA-Z0-9.-]+$'
@@ -15,7 +13,11 @@ class EmailAddress extends Address {
     protected static final int MIN_LENGTH = 5
     protected static final int MAX_LENGTH = 256
 
-    String value
+    final String value
+
+    protected EmailAddress(final String value) {
+        this.value = value
+    }
 
     /**
      * Factory Method to handle Construction of `EmailAddress` Immutable Objects

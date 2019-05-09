@@ -1,25 +1,54 @@
 package com.parisesoftware.archetype.quantity
 
 import com.parisesoftware.archetype.core.Name
-import groovy.transform.Immutable
+import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.Validate.notNull
 
-@Immutable
 class Metric {
 
-    Name name
+    final Name name
 
-    Symbol symbol
+    final Symbol symbol
 
-    String definition
+    final String definition
 
-    static Metric of(final Name name, final Symbol symbol = Symbol.of(null), final String definition = null) {
+    protected Metric(final Name name, final Symbol symbol, final String definition) {
+        this.name = name
+        this.symbol = symbol
+        this.definition = definition
+    }
+
+    static Metric of(final Name name, final Symbol symbol, final String definition) {
 
         // verify the name was not null
         notNull(name)
 
-        return new Metric(name: name, symbol: symbol, definition: definition)
+        return new Metric(name, symbol, definition)
+    }
+
+    static Metric of(final Name name, final Symbol symbol) {
+
+        // verify the name was not null
+        notNull(name)
+
+        return new Metric(name, symbol, StringUtils.EMPTY)
+    }
+
+    static Metric of(final Name name, final String definition) {
+
+        // verify the name was not null
+        notNull(name)
+
+        return new Metric(name, Symbol.generateNullObject(), definition)
+    }
+
+    static Metric of(final Name name) {
+
+        // verify the name was not null
+        notNull(name)
+
+        return new Metric(name, Symbol.generateNullObject(), StringUtils.EMPTY)
     }
 
 }
