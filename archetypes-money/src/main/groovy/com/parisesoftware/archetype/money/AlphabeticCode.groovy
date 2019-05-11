@@ -1,6 +1,5 @@
 package com.parisesoftware.archetype.money
 
-import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.Validate.notNull
@@ -8,10 +7,13 @@ import static org.apache.commons.lang3.Validate.notNull
 /**
  * ISO 4217 Standard Assigned Alphabetic Code
  */
-@Immutable
 class AlphabeticCode {
 
-    String value
+    final String value
+
+    protected AlphabeticCode(final String value) {
+        this.value = value
+    }
 
     static AlphabeticCode of(final String value) {
 

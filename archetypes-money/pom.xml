@@ -22,6 +22,12 @@
             <artifactId>archetypes-core</artifactId>
             <version>${revision}</version>
         </dependency>
+        <dependency>
+            <groupId>com.parisesoftware</groupId>
+            <artifactId>archetypes-quantity</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
