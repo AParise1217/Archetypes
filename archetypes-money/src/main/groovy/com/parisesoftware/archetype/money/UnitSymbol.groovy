@@ -1,14 +1,15 @@
 package com.parisesoftware.archetype.money
 
-import groovy.transform.Immutable
-
-@Immutable
 class UnitSymbol {
 
-    Character value
+    final Character value
+
+    protected UnitSymbol(final Character value) {
+        this.value = value
+    }
 
     static UnitSymbol of(final Character value) {
-        return new UnitSymbol(value: value)
+        return new UnitSymbol(value)
     }
 
 }

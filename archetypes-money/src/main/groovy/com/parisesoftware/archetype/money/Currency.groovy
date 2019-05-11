@@ -1,14 +1,12 @@
 package com.parisesoftware.archetype.money
 
 import com.parisesoftware.archetype.core.Name
-import groovy.transform.Immutable
 
 import static org.apache.commons.lang3.Validate.notNull
 
 /**
  * A Generalized Notion of Currency
  */
-@Immutable
 class Currency {
 
     private Name name
@@ -35,7 +33,7 @@ class Currency {
      *
      * @return a fully instantiated Currency
      */
-    static Currency of(final Name name, final String description = null,
+    static Currency of(final Name name, final String description = '',
                        final AlphabeticCode alphabeticCode, final NumericCode numericCode = NumericCode.of(null),
                        final UnitSymbol majorUnitSymbol, final UnitSymbol minorUnitSymbol = UnitSymbol.of(null)) {
 
@@ -54,11 +52,11 @@ class Currency {
     }
 
     String getName() {
-        return name
+        return this.name.value
     }
 
     String getSymbol() {
-        return majorUnitSymbol.toString()
+        return majorUnitSymbol.value.toString()
     }
 
 }

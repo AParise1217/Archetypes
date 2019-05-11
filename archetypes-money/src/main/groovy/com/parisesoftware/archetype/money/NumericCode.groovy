@@ -1,6 +1,5 @@
 package com.parisesoftware.archetype.money
 
-import groovy.transform.Immutable
 import org.apache.commons.lang3.StringUtils
 
 import static org.apache.commons.lang3.Validate.notNull
@@ -8,10 +7,13 @@ import static org.apache.commons.lang3.Validate.notNull
 /**
  * ISO 4217 Standard Assigned Numeric Code
  */
-@Immutable
 class NumericCode {
 
-    String value
+    final String value
+
+    protected NumericCode(final String value) {
+        this.value = value
+    }
 
     static NumericCode of(final String value) {
 
@@ -21,7 +23,7 @@ class NumericCode {
         // verify the value was numeric
         StringUtils.isNumeric(value)
 
-        return new NumericCode(value: value)
+        return new NumericCode(value)
     }
 
 }
