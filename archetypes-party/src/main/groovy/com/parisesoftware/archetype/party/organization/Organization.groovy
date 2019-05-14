@@ -18,7 +18,7 @@ class Organization extends Party {
     final List<OrganizationName> otherOrganizationNames
 
     protected Organization(final PartyIdentifier partyIdentifier, final Name name, final List<Address> addresses) {
-        super(partyIdentifier, name, addresses)
+        super(partyIdentifier, addresses)
 
         this.organizationName = OrganizationName.of(name.value)
         this.otherOrganizationNames = []
@@ -32,6 +32,10 @@ class Organization extends Party {
         return this.otherOrganizationNames
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     String getName() {
         return this.organizationName.name
     }

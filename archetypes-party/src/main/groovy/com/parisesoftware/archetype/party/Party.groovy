@@ -1,62 +1,48 @@
 package com.parisesoftware.archetype.party
 
-import com.parisesoftware.archetype.core.Name
-import com.parisesoftware.archetype.core.UniqueIdentifier
 import com.parisesoftware.archetype.party.address.Address
-import groovy.transform.Immutable
 
-import static org.apache.commons.lang3.Validate.notEmpty
-import static org.apache.commons.lang3.Validate.notNull
-
-class Party {
+/**
+ * Container of Rudimentary Semantics;
+ *  Most Specifics are captured by {@link com.parisesoftware.archetype.person.Person},
+ *      or subclasses of {@link com.parisesoftware.archetype.party.organization.Organization}
+ */
+abstract class Party {
 
     final PartyIdentifier partyIdentifier
-
-    final Name name
 
     final List<Address> addresses
 
     final List<RegisteredIdentifier> registeredIdentifiers
 
-    protected Party(final PartyIdentifier partyIdentifier, final Name name,
+    final List<PartyRole> partyRoles
+
+    protected Party(final PartyIdentifier partyIdentifier,
                     final List<Address> addresses) {
         this.partyIdentifier = partyIdentifier
-        this.name = name
         this.addresses = addresses
         this.registeredIdentifiers = Collections.EMPTY_LIST
+        this.partyRoles = Collections.EMPTY_LIST
     }
 
-    protected Party(final PartyIdentifier partyIdentifier, final Name name,
+    protected Party(final PartyIdentifier partyIdentifier,
                     final List<Address> addresses,
-                    final List<RegisteredIdentifier> registeredIdentifiers) {
+                    final List<RegisteredIdentifier> registeredIdentifiers,
+                    final List<PartyRole> partyRoles) {
         this.partyIdentifier = partyIdentifier
-        this.name = name
         this.addresses = addresses
         this.registeredIdentifiers = registeredIdentifiers
-    }
-
-    static Party of(final PartyIdentifier partyIdentifier, final Name name, final List<Address> addresses) {
-
-        // verify the UniqueIdentifier was not null
-        notNull(partyIdentifier)
-
-        // verify the Name was not null
-        notNull(name)
-
-        // verify the address list has at least one entry
-        notEmpty(addresses)
-
-        return new Party(partyIdentifier, name,
-                addresses)
+        this.partyRoles = partyRoles
     }
 
     PartyIdentifier getPartyIdentifier() {
         return this.partyIdentifier
     }
 
-    String getName() {
-        return this.name.value
-    }
+    /**
+     * @return {@code String} the name of this Party
+     */
+    abstract String getName()
 
     List<RegisteredIdentifier> getRegisteredIdentifiers() {
         return this.registeredIdentifiers
@@ -64,6 +50,10 @@ class Party {
 
     List<Address> getAddresses() {
         return this.addresses
+    }
+
+    List<PartyRole> getRoles() {
+        return this.partyRoles
     }
 
 }
