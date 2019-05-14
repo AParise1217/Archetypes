@@ -17,4 +17,7 @@ Make sure the "release-sign-artifacts" and "ossrh"
 2) `mvn release:prepare`
 3) `mvn release:perform`
 
+* await the release process to finish *
 
+4) `git push --tags`
+5) `git push origin master`
