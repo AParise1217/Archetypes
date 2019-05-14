@@ -6,6 +6,8 @@ import static org.apache.commons.lang3.Validate.notNull
 
 /**
  * Representation of a place, location, or some context
+ * @version 1.0.0
+ * @since 1.0.0
  */
 class Locale {
 

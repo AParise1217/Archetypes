@@ -7,6 +7,8 @@ import static org.apache.commons.lang3.Validate.notNull
 
 /**
  * a Locale Representation of a Country
+ * @version 1.0.0
+ * @since 1.0.0
  */
 class ISOCountryCode extends Locale {
 

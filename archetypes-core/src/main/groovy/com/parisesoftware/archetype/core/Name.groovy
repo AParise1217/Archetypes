@@ -2,6 +2,11 @@ package com.parisesoftware.archetype.core
 
 import static org.apache.commons.lang3.Validate.notNull
 
+/**
+ *
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 class Name {
 
     protected final String value
