@@ -15,8 +15,10 @@ class UserIdentifier extends UniqueIdentifier {
     protected static final int MIN_LENGTH = 3
     protected static final int MAX_LENGTH = 36
 
-    protected UserIdentifier(String identifier) {
-        super(identifier)
+    final String uniqueIdentifier
+
+    protected UserIdentifier(String uniqueIdentifier) {
+        this.uniqueIdentifier = uniqueIdentifier
     }
 
     /**
@@ -76,6 +78,14 @@ class UserIdentifier extends UniqueIdentifier {
         if (!"$value".matches(REGEX_CONTAINS_INVALID_CHARACTER)) {
             throw new IllegalArgumentException("Param Value Contained an invalid Character.")
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    String getIdentifier() {
+        return this.identifier
     }
 
 }

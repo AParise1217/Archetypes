@@ -1,27 +1,34 @@
 package com.parisesoftware.archetype.party
 
 import com.parisesoftware.archetype.core.UniqueIdentifier
-import groovy.transform.Immutable
 
-import static org.apache.commons.lang3.Validate.notNull
+import static org.apache.commons.lang3.Validate.notBlank
 
 /**
- * a System Generated Unique Identifier
+ * a System Generated Unique Identifier for a {@link Party}
  */
-class PartyIdentifier {
+class PartyIdentifier extends UniqueIdentifier {
 
-    final UniqueIdentifier uniqueIdentifier
+    final String uniqueIdentifier
 
-    protected PartyIdentifier(final UniqueIdentifier uniqueIdentifier) {
+    protected PartyIdentifier(final String uniqueIdentifier) {
         this.uniqueIdentifier = uniqueIdentifier
     }
 
-    static PartyIdentifier of(final UniqueIdentifier uniqueIdentifier) {
+    static PartyIdentifier of(final String uniqueIdentifier) {
 
         // verify the UniqueIdentifier was not null
-        notNull(uniqueIdentifier)
+        notBlank(uniqueIdentifier)
 
-        return new PartyIdentifier(uniqueIdentifier: uniqueIdentifier)
+        return new PartyIdentifier(uniqueIdentifier)
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    String getIdentifier() {
+        return this.uniqueIdentifier
     }
 
 }
