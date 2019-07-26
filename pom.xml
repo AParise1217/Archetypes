@@ -5,7 +5,7 @@
 
     <artifactId>archetypes-parent</artifactId>
     <groupId>com.parisesoftware</groupId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <name>Archetypes :: Parent Pom</name>
     <description>Parent POM to Archetypes for use in Data Modeling</description>
     <packaging>pom</packaging>
@@ -33,7 +33,7 @@
         <connection>scm:git:git://github.com/AParise1217/archetypes.git</connection>
         <developerConnection>scm:git:git@github.com:AParise1217/archetypes.git</developerConnection>
         <url>https://github.com/AParise1217/archetypes</url>
-        <tag>HEAD</tag>
+        <tag>archetypes-parent-1.0.4</tag>
     </scm>
 
     <licenses>
