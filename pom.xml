@@ -5,9 +5,9 @@
 
     <artifactId>archetypes-parent</artifactId>
     <groupId>com.parisesoftware</groupId>
-    <version>1.0.4-SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>Archetypes :: Parent Pom</name>
-    <description>Parent POM to Archetypes for use in Data Modelling</description>
+    <description>Parent POM to Archetypes for use in Data Modeling</description>
     <packaging>pom</packaging>
     <url>https://github.com/AParise1217/archetypes</url>
 
@@ -182,6 +182,7 @@
                 <version>1.7.1</version>
                 <executions>
                     <execution>
+                        <id>attach-javadoc</id>
                         <phase>site</phase>
                         <goals>
                             <goal>generateStubs</goal>
