@@ -67,8 +67,8 @@
 
     <build>
 
-        <sourceDirectory>${baseDir}/src/main/groovy</sourceDirectory>
-        <testSourceDirectory>${baseDir}/src/test/groovy</testSourceDirectory>
+        <sourceDirectory>${basedir}/src/main/groovy</sourceDirectory>
+        <testSourceDirectory>${basedir}/src/test/groovy</testSourceDirectory>
 
         <plugins>
 
