@@ -30,8 +30,8 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/AParise12317/archetypes.git</connection>
-        <developerConnection>scm:git:git@github.com:AParise12317/archetypes.git</developerConnection>
+        <connection>scm:git:git://github.com/AParise1217/archetypes.git</connection>
+        <developerConnection>scm:git:git@github.com:AParise1217/archetypes.git</developerConnection>
         <url>https://github.com/AParise1217/archetypes</url>
         <tag>HEAD</tag>
     </scm>
