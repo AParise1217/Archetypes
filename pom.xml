@@ -5,7 +5,7 @@
 
     <artifactId>archetypes-parent</artifactId>
     <groupId>com.parisesoftware</groupId>
-    <version>${revision}</version>
+    <version>1.0.3-SNAPSHOT</version>
     <name>Archetypes :: Parent Pom</name>
     <description>Parent POM to Archetypes for use in Data Modelling</description>
     <packaging>pom</packaging>
