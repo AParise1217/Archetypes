@@ -8,7 +8,9 @@ Much of these models are based on those presented in "Enterprise
     picking up a copy of this book to get a better understanding on 
     model driven architecture.
 
-# Performing a Snapshot Release Deployment
+
+# Releasing to Maven Central
+## Performing a Release Deployment
 *Note: This must occur prior to the Release Deployment!*
 
 Make sure the "release-sign-artifacts" and "ossrh" 
@@ -23,7 +25,6 @@ Make sure the "release-sign-artifacts" and "ossrh"
 4) `git push --tags`
 5) `git push origin master`
 
-# Performing a Release Deployment
+## Updating the Release Version
+1) `mvn versions:set -DnewVersion=1.2.3`
 
-1) Update the Release Version
-`mvn versions:set -DnewVersion=1.2.3`
