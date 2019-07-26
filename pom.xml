@@ -183,7 +183,6 @@
                 <executions>
                     <execution>
                         <id>attach-javadoc</id>
-                        <phase>site</phase>
                         <goals>
                             <goal>generateStubs</goal>
                             <goal>generateTestStubs</goal>
