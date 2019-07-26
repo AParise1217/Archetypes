@@ -183,10 +183,7 @@
                     <execution>
                         <id>attach-javadoc</id>
                         <goals>
-                            <goal>generateStubs</goal>
-                            <goal>generateTestStubs</goal>
                             <goal>groovydoc-jar</goal>
-                            <goal>groovydocTests-jar</goal>
                         </goals>
                     </execution>
                 </executions>
