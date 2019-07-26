@@ -5,10 +5,11 @@
 
     <artifactId>archetypes-parent</artifactId>
     <groupId>com.parisesoftware</groupId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>Archetypes :: Parent Pom</name>
     <description>Parent POM to Archetypes for use in Data Modelling</description>
     <packaging>pom</packaging>
+    <url>https://github.com/AParise1217/archetypes</url>
 
     <modules>
         <module>archetypes-core</module>
@@ -19,12 +20,29 @@
         <module>archetypes-quantity</module>
     </modules>
 
+    <developers>
+        <developer>
+            <email>AndrewParise1994@gmail.com</email>
+            <name>Andrew Parise</name>
+            <url>https://github.com/AParise1217</url>
+            <id>AParise1217</id>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:git://github.com/AParise12317/archetypes.git</connection>
         <developerConnection>scm:git:git@github.com:AParise12317/archetypes.git</developerConnection>
         <url>https://github.com/AParise1217/archetypes</url>
         <tag>HEAD</tag>
     </scm>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
     <distributionManagement>
         <snapshotRepository>
@@ -48,6 +66,7 @@
     </properties>
 
     <build>
+
         <plugins>
 
             <!--  Groovy Compiler Plugin -->
@@ -140,19 +159,37 @@
                 </configuration>
             </plugin>
 
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-source-plugin</artifactId>-->
-<!--                <version>3.0.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>attach-sources</id>-->
-<!--                        <goals>-->
-<!--                            <goal>jar</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.7.1</version>
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>generateStubs</goal>
+                            <goal>generateTestStubs</goal>
+                            <goal>groovydoc-jar</goal>
+                            <goal>groovydocTests-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
 
     </build>

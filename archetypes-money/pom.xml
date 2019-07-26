@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>archetypes-money</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>Archetypes :: Money</name>
     <description>Currency/Money related Archetypes</description>
     <packaging>jar</packaging>
@@ -12,19 +12,19 @@
     <parent>
         <groupId>com.parisesoftware</groupId>
         <artifactId>archetypes-parent</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <dependencies>
         <dependency>
             <groupId>com.parisesoftware</groupId>
             <artifactId>archetypes-core</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>com.parisesoftware</groupId>
             <artifactId>archetypes-quantity</artifactId>
-            <version>${revision}</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
