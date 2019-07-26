@@ -15,8 +15,8 @@ Make sure the "release-sign-artifacts" and "ossrh"
     Maven profiles are active.
 
 1) `mvn clean`
-2) `mvn release:prepare`
-3) `mvn release:perform`
+2) `mvn release:prepare -Possrh,release-sign-artifacts`
+3) `mvn release:perform -Possrh,release-sign-artifacts`
 
 * await the release process to finish *
 

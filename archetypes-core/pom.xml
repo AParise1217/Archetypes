@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>archetypes-core</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>Archetypes :: Core</name>
     <description>Base Archetypes for use in other submodules</description>
     <packaging>jar</packaging>
@@ -12,7 +12,7 @@
     <parent>
         <groupId>com.parisesoftware</groupId>
         <artifactId>archetypes-parent</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.4-SNAPSHOT</version>
     </parent>
 
 </project>
